@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="study.dao.mapper.PersonDao">
+    <insert id="save" parameterType="study.dao.entity.PersonEntity">
+        INSERT into person
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="personId != null">personId,</if>
+            <if test="loginName != null">loginName,</if>
+            <if test="niChen != null">niChen,</if>
+            <if test="passWord != null">passWord,</if>
+            <if test="addTime != null">addTime,</if>
+            <if test="personType != null">personType,</if>
+            <if test="isDelete != null">isDelete,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="personId != null">#{personId},</if>
+            <if test="loginName != null">#{loginName},</if>
+            <if test="niChen != null">#{niChen},</if>
+            <if test="passWord != null">#{passWord},</if>
+            <if test="addTime != null">#{addTime},</if>
+            <if test="personType != null">#{personType},</if>
+            <if test="isDelete != null">#{isDelete},</if>
+        </trim>
+    </insert>
+    <!--update 在mybatis的xml无法定义返回值, 暂不更改手机号-->
+    <update id="update"  parameterType="study.dao.entity.PersonEntity" >
+        UPDATE person
+        <set>
+            <if test="niChen !=null and niChen !=''">niChen =#{niChen} ,</if>
+            <if test="passWord !=null and passWord !=''">passWord =#{passWord} ,</if>
+            <if test="personType !=null">personType =#{personType} ,</if>
+            <if test="isDelete !=null">isDelete =#{isDelete} ,</if>
+        </set>
+        WHERE personId = #{personId}
+    </update>
+</mapper>

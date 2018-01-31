@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="study.dao.mapper.CarsDao">
+    <insert id="addCar" parameterType="study.dao.entity.CarsEntity">
+        INSERT INTO cars(
+          CarId,
+          PhoneNumber,
+          PersonId,
+          OwnName,
+          Brand,
+          Series,
+          Type,
+          Color,
+          PlateTime,
+          Age,
+          Mileage,
+          GearBox,
+          Emission,
+          Displacement,
+          Country,
+          Introduce,
+          AddTime,
+          Price,
+          IsAudit,
+          IsDelete
+
+        ) VALUES (
+            #{carId},
+            #{phoneNumber},
+            #{personId},
+            #{ownName},
+            #{brand},
+            #{series},
+            #{type},
+            #{color},
+            #{plateTime},
+            #{age},
+            #{mileage},
+            #{gearBox},
+            #{emission},
+            #{displacement},
+            #{country},
+            #{introduce},
+            #{addTime},
+            #{price},
+            #{isAudit},
+            #{isDelete}
+        )
+    </insert>
+
+    <select id="SearchByKeyWord" resultType="study.dao.entity.CarsEntity">
+        SELECT *from cars where isDelete = 0
+        <if test="keyWord !=null and keyWord != ''">
+            and (
+            Brand like concat('%',#{keyWord},'%')
+            OR Series like concat('%',#{keyWord},'%')
+            )
+        </if>
+        <if test="lPrice !=0.0">
+            AND Price &gt;= #{lPrice}
+        </if>
+        <if test="hPrice !=0.0">
+            AND Price &lt;= #{hPrice}
+        </if>
+        <if test="lAge !=0.0">
+            AND Age &gt;= #{lAge}
+        </if>
+        <if test="hAge !=0.0">
+            AND Age &lt;= #{hAge}
+        </if>
+
+        ORDER by addTime DESC
+        limit #{pageIndex},5
+    </select>
+</mapper>

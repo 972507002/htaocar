@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="renderer" content="webkit"/>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <title>买车</title>
+    <meta content="" name="keywords"/>
+    <meta content="" name="description"/>
+
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link href="css/page.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/default.css"/>
+    <link rel="stylesheet" href="css/sj.css"/>
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script charset="utf-8" src="js/kindeditor-min.js"></script>
+    <script charset="utf-8" src="js/zh_CN.js"></script>
+    <script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+
+    <style type="text/css">
+
+
+        #upBox {
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+
+            margin: auto;
+
+            position: relative;
+            border-radius: 10px;
+        }
+
+        #inputBox {
+            width: 40%;
+            height: 40px;
+            border: 1px solid #ee7700;
+            color: #ee7700;
+            border-radius: 20px;
+            position: relative;
+            text-align: center;
+            line-height: 40px;
+            overflow: hidden;
+            font-size: 16px;
+        }
+
+        #inputBox input {
+            width: 114%;
+            height: 40px;
+            opacity: 0;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: -14%;
+
+        }
+
+        #imgBox {
+            text-align: left;
+        }
+
+        .imgContainer {
+            display: inline-block;
+            width: 32%;
+            height: 150px;
+            margin-left: 1%;
+            border: 1px solid #666666;
+            position: relative;
+            margin-top: 30px;
+            box-sizing: border-box;
+        }
+
+        .imgContainer img {
+            width: 100%;
+            height: 150px;
+            cursor: pointer;
+        }
+
+        .imgContainer p {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: black;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+        }
+
+        .imgContainer:hover p {
+            display: block;
+        }
+
+        #btn {
+            outline: none;
+            width: 100px;
+            height: 30px;
+            background: #ee7700;
+            border: 1px solid #ee7700;
+            color: white;
+            cursor: pointer;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        .nav_list ul > li {
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+<!--内容-->
+<script type="text/javascript" src="js/jquery.inputtext.js"></script>
+<script language="JavaScript">
+    $(function () {
+        $(".keywords").textRemindAuto();
+    })
+</script>
+<!--头部-->
+
+
+<div class="top">
+    <div class="top_main clearfix">
+        <div class="top_left"> 欢迎来到汇淘二手车交易市场有限公司！</div>
+        <div class="top_right"> 咨询热线：<span class="orange01 fb">0512-67481686</span> </div>
+    </div>
+</div>
+
+<div class="headw">
+    <div class="head">
+        <div class="logo"><a href="#"><img src="images/logo.jpg" alt=""/></a></div>
+        <div class="topsearch">
+            <div class="topsearchbox">
+                <form method="get" action="">
+                    <input type="text" name="k" class="keywords" value="请输入关键词，如宝马"/>
+                    <input type="submit" value="" class="button"/>
+                    <input type="hidden" name="m" value="search"/>
+                </form>
+            </div>
+        </div>
+        <div class="carnum"><a href="/toRegister"><img src="images/zhongxin.jpg"/></a></div>
+    </div>
+</div>
+<div class="nav_list">
+    <ul class="clearfix">
+        <li><a href="toIndex" title="首页">首页</a></li>
+        <li><a href="toBuy" title="买车">买车</a></li>
+        <li><a href="toSell" title="卖车" class="here">卖车</a></li>
+        <li><a href="toGujia" title="评估">评估</a></li>
+        <li><a href="toNews" title="攻略">攻略</a></li>
+        <li><a href="toContact" title="联系">联系</a></li>
+    </ul>
+</div>
+<div class="  col-xs-12 dh-wz ">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigat</span>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="clearfix xiala ">
+                <li><a href="toIndex" title="首页">首页</a></li>
+                <li><a href="toBuy" title="买车">买车</a></li>
+                <li class="on"><a href="toSell" title="卖车" class="here">卖车</a></li>
+                <li><a href="toGujia" title="评估">评估</a></li>
+                <li><a href="toNews" title="攻略">攻略</a></li>
+                <li><a href="toContact" title="联系">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!--头部end -->
+<div class="nav">您当前的位置：<a href="#" tppabs="#">首页</a> <span>></span> 卖车</div>
+<div class="main mt10 clearfix">
+    <div class="main_left">
+        <div class="sellbox">
+            <h3>填写爱车信息：</h3>
+            <div class="box clearfix">
+                <form name="carform" id="carform" class="carform">
+                    <table cellspacing="0" cellpadding="0" width="100%" class="sell_table">
+                        <tr>
+                            <th><span class="red"></span> 品牌型号：</th>
+                            <td colspan="3"><select name="p_brand" id="brand" nullmsg="请选择品牌！">
+                                <option value=''>请选择品牌</option>
+                                <option value='奥迪'> 奥迪</option>
+                                <option value='别克'> 别克</option>
+                                <option value='东风悦达'> 东风悦达</option>
+                                <option value='宾利'> 宾利</option>
+                                <option value='保时捷'> 保时捷</option>
+                                <option value='吉利'> 吉利</option>
+                                <option value='奔驰'> 奔驰</option>
+                                <option value='东南汽车'> 东南汽车</option>
+                                <option value='奇瑞QQ'> 奇瑞QQ</option>
+                                <option value='现代'> 现代</option>
+                                <option value='宝马'> 宝马</option>
+                                <option value='比亚迪'> 比亚迪</option>
+                                <option value='本田'> 本田</option>
+                                <option value='日产'> 日产</option>
+                                <option value='雪佛兰'> 雪佛兰</option>
+                                <option value='大众'> 大众</option>
+                                <option value='福特'> 福特</option>
+                                <option value='丰田'> 丰田</option>
+                            </select>
+                                <!--<input id="subbrand" name="p_subbrand" nullmsg="请输入车系！"/>-->
+                                <!--<input class="subbrand" id="subbrand" name="p_subbrand" datatype="n" nullmsg="请输入车系！">-->
+                                <!--<select class="subbrand" id="subsubbrand" name="p_subsubbrand" datatype="n" nullmsg="请选择款式！">-->
+                                <!--<option value="" selected>请选择款式</option>-->
+                                <!--</select>-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="red"></span>车系：</th>
+                            <td><input name="p_subbrand" nullmsg="请填写车系！"/>
+                                </td>
+                        </tr>
+                        <tr>
+                            <th><span class="red"></span> 车型选择：</th>
+                            <td><select name="p_model" nullmsg="请选择车型！">
+                                <option value=''>请选择车型</option>
+                                <option value='微型车'>微型车</option>
+                                <option value='小型车'>小型车</option>
+                                <option value='紧凑型车'>紧凑型车</option>
+                                <option value='中型车'>中型车</option>
+                                <option value='中大型车'>中大型车</option>
+                                <option value='豪华车'>豪华车</option>
+                                <option value='跑车'>跑车</option>
+                                <option value='面包车'>面包车</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th><span class="red"></span>预售价格：</th>
+                            <td><input type="text" name="p_price" size="8" datatype="s" nullmsg="请填写价格！"/>
+                                <span class="gray">(万元)</span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="red"></span> 车体颜色：</th>
+                            <td width="220"><select name="p_color" datatype="s" nullmsg="请选择颜色！">
+                                <option value=''>请选择颜色</option>
+                                <option value='白色'>白色</option>
+                                <option value='绿色'>绿色</option>
+                                <option value='蓝色'>蓝色</option>
+                                <option value='紫色'>紫色</option>
+                                <option value='红色'>红色</option>
+                                <option value='黄色'>黄色</option>
+                                <option value='银灰'>银灰</option>
+                                <option value='灰色'>灰色</option>
+                                <option value='黑色'>黑色</option>
+                                <option value='橙色'>橙色</option>
+                                <option value='棕色'>棕色</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th><span class="red"></span> 排放标准：</th>
+                            <td colspan="3"><select name="p_emission" datatype="s" nullmsg="请选择排放标准！">
+                                <option value="">请选择</option>
+                                <option value="国一">国一</option>
+                                <option value="国二">国二</option>
+                                <option value="国三">国三</option>
+                                <option value="国四">国四</option>
+                                <option value="国五">国五</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th width="50"><span class="red"></span> 排量：</th>
+                            <td><select name="p_gas" datatype="s" nullmsg="请选择排量！">
+                                <option value=''>请选择排量</option>
+                                <option value='0.8'>0.8</option>
+                                <option value='1.0'>1.0</option>
+                                <option value='1.2'>1.2</option>
+                                <option value='1.3'>1.3</option>
+                                <option value='1.4'>1.4</option>
+                                <option value='1.5'>1.5</option>
+                                <option value='1.6'>1.6</option>
+                                <option value='1.8'>1.8</option>
+                                <option value='2.0'>2.0</option>
+                                <option value='2.3'>2.3</option>
+                                <option value='2.4'>2.4</option>
+                                <option value='2.5'>2.5</option>
+                                <option value='2.8'>2.8</option>
+                                <option value='2.7'>2.7</option>
+                                <option value='3.0'>3.0</option>
+                                <option value='4.0'>3.0以上</option>
+                            </select>
+                                升
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="red"></span> 变速箱：</th>
+                            <td><select name="p_transmission" datatype="*" nullmsg="请选择变速箱！">
+                                <option value=''>请选择变速箱</option>
+                                <option value='手动'>手动</option>
+                                <option value='自动'>自动</option>
+                                <option value='无级变速'>无级变速</option>
+                                <option value='手自一体'>手自一体</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th><span class="red"></span> 上牌日期：</th>
+                            <td><select name="p_year" id="p_year" datatype="n" nullmsg="请选择上牌日期！">
+                                <option value=''>请选择年份</option>
+                                <option value='2001'>2001年</option>
+                                <option value='2002'>2002年</option>
+                                <option value='2003'>2003年</option>
+                                <option value='2004'>2004年</option>
+                                <option value='2005'>2005年</option>
+                                <option value='2006'>2006年</option>
+                                <option value='2007'>2007年</option>
+                                <option value='2008'>2008年</option>
+                                <option value='2009'>2009年</option>
+                                <option value='2010'>2010年</option>
+                                <option value='2011'>2011年</option>
+                                <option value='2012'>2012年</option>
+                                <option value='2013'>2013年</option>
+                                <option value='2014'>2014年</option>
+                                <option value='2015'>2015年</option>
+                                <option value='2016'>2016年</option>
+                                <option value='2017'>2017年</option>
+                            </select>
+                                <select name="p_month" id="p_month" datatype="n" nullmsg="请选择上牌日期！">
+                                    <option value=''>请选择月份</option>
+                                    <option value='01'>01月</option>
+                                    <option value='02'>02月</option>
+                                    <option value='03'>03月</option>
+                                    <option value='04'>04月</option>
+                                    <option value='05'>05月</option>
+                                    <option value='06'>06月</option>
+                                    <option value='07'>07月</option>
+                                    <option value='08'>08月</option>
+                                    <option value='09'>09月</option>
+                                    <option value='10'>10月</option>
+                                    <option value='11'>11月</option>
+                                    <option value='12'>12月</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <th>行驶里程：</th>
+                            <td><input name="p_kilometre" type="text" id="p_kilometre" size="5" datatype="gas"
+                                       ignore="ignore" errormsg="行驶里程格式不正确！"/>
+                                <span class="gray">(万公里)</span></td>
+                        </tr>
+
+                        <tr>
+                            <th>国产进口：</th>
+                            <td><select name="p_country">
+                                <option>请选择</option>
+                                <option value='国产'>国产</option>
+                                <option value='进口'>进口</option>
+                            </select></td>
+                        </tr>
+
+                        <!--<tr>-->
+                            <!--<th>图片：</th>-->
+                            <!--<td colspan="3">-->
+                                <!--<ul id="piclist" class="clearfix">-->
+                                <!--</ul>-->
+                                <!--<div style="width: 100%;height:100%;position: relative;">-->
+                                    <!--<div id="upBox">-->
+                                        <!--<div id="inputBox"><input type="file" id="file" value="批量上传图片"-->
+                                                                  <!--multiple="multiple"-->
+                                                                  <!--accept="image/png,image/jpg,image/gif,image/JPEG"-->
+                                                                  <!--class="uploadbut"/>批量上传图片-->
+                                        <!--</div>-->
+                                        <!--<div id="imgBox">-->
+                                        <!--</div>-->
+
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+
+
+                        <tr>
+                            <th><span class="red"></span> 车主称呼：</th>
+                            <td colspan="5"><input name="p_username" type="text" size="30" class="inp01" value=""
+                                                   datatype="s" nullmsg="请填写车主称谓！"/></td>
+                        </tr>
+                        <tr>
+                            <th>车辆补充描述：</th>
+                            <td colspan="5"><textarea name="p_details" rows="2" cols="90" class="textarea01"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="button" id="sellBut" value="我要卖车" class="sell_but02" onclick="addCar()"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="main_right">
+        <div class="commonbox02">
+            <h3>热门车源</h3>
+            <div class="box">
+                <div id="hotcar">
+                    <div class="hotcarlist"><a href="/getCar?carId=bc62ecea-0775-4a84-b0e3-7aacf182d956"
+                                               target="_blank"><img
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205213856_0684.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=bc62ecea-0775-4a84-b0e3-7aacf182d956" target="_blank">一汽-大众CC
+                            2015款 3.0FSI V6</a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥23.88万</span>2015年8月上牌</p>
+                    </div>
+                    <div class="hotcarlist"><a href="/getCar?carId=3f6fd5c2-3a5a-42ab-bf81-5c2db054cd20"
+                                               target="_blank"><img
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205211319_0437.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=3f6fd5c2-3a5a-42ab-bf81-5c2db054cd20" target="_blank">奔驰E级
+                            2014款 E 300 L </a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥36.8万</span>2014年7月上牌</p>
+                    </div>
+                    <div class="hotcarlist"><a href="/getCar?carId=a5641634-02f2-4485-a6fc-145be7cc42d1"
+                                               target="_blank"><img
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205221149_0644.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=a5641634-02f2-4485-a6fc-145be7cc42d1" target="_blank">丰田坦途
+                            2011款 5.7 标准型 </a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥46.9万</span>2016年9月上牌</p>
+                    </div>
+                    <div class="hotcarlist"><a href="/getCar?carId=5f240d1b-ddb9-4fe0-8eea-5b4727a63dc1"
+                                               target="_blank"><img
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205222217_0841.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=5f240d1b-ddb9-4fe0-8eea-5b4727a63dc1" target="_blank">英朗
+                            2014款 XT 1.6L </a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥8.3万</span>2014年3月上牌</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--版权-->
+<!--底部导航-->
+<script src="js/uploadImg.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    imgUpload({
+        inputId: 'file', //input框id
+        imgBox: 'imgBox', //图片容器id
+        buttonId: 'btn', //提交按钮id
+        upUrl: '',  //提交地址
+        data: 'file1' //参数名
+    })
+
+    function addCar() {
+        var formParam = $("#carform").serialize();//序列化表格内容为字符串
+        $.ajax({
+            type: 'post',
+            url: 'addCar',
+            data: formParam,
+            success: function (resultDto) {
+                if (resultDto.success) {
+//                    $("#reMess").html(resultDto.message);
+                    alert(resultDto.message);
+                    window.location.href = "/toUpload";
+                } else {
+                    alert(resultDto.message + "error");
+                }
+            },
+            error: function (data) {
+                $("#regResult").val(data);
+            }
+        })
+    }
+
+
+</script>
+<div class="footer" id="foot">
+    <p class="tc"><a href="#" tppabs="#" title="首页">首页</a> | <a href="#" tppabs="#" title="买车">买车</a>
+        | <a href="#" tppabs="#" title="卖车">卖车</a>
+        | <a href="#" tppabs="#" title="评估">评估</a>
+        | <a href="#" tppabs="#" title="攻略">攻略</a>
+        | <a href="#" tppabs="#" title="联系">联系</a> | </p>
+    <p class="mt10"> Copyright 2017 汇淘二手车交易市场有限公司 </p>
+    <p class="mt10"><img src="images/dh.jpg"/>0512-67481686 </p>
+</div>
+<div id="right-side" class="right-side">
+    <ul>
+        <li class="side-top w4"><a id="backtop" title="返回顶部" href="#" style="display: block;">返回顶部</a></li>
+    </ul>
+</div>
+<!-- 版权 结束 -->
+</body>
+</html>

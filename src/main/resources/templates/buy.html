@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="renderer" content="webkit"/>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <title>买车</title>
+    <meta content="" name="keywords"/>
+    <meta content="" name="description"/>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link href="css/car.css" rel="stylesheet" type="text/css"/>
+    <link href="css/sj.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+<style type="text/css">
+    .nav_list ul > li {
+        margin-right: 30px;
+    }
+</style>
+<!--内容-->
+<script type="text/javascript" src="js/jquery.inputtext.js"></script>
+<script language="JavaScript">
+    $(function () {
+        $(".keywords").textRemindAuto();
+    })
+</script>
+
+<div class="top">
+    <div class="top_main clearfix">
+        <div class="top_left"> 欢迎来到汇淘二手车交易市场有限公司！</div>
+        <div class="top_right"> 咨询热线：<span class="orange01 fb">0512-67481686</span> </div>
+    </div>
+</div>
+
+<div class="headw">
+    <div class="head">
+        <div class="logo"><a href="#"><img src="images/logo.jpg" alt=""/></a></div>
+        <div class="topsearch">
+            <div class="topsearchbox">
+                <form method="get" action="/toBuy">
+                    <input type="text" name="keyWord" class="keywords" value=""/>
+                    <input type="submit" value="" class="button"/>
+                    <!--<input type="hidden" name="m" value="search"/>-->
+                </form>
+            </div>
+        </div>
+        <div class="carnum"><a href="/toRegister"><img src="images/zhongxin.jpg"/></a></div>
+    </div>
+</div>
+<div class="nav_list">
+    <ul class="clearfix">
+        <li><a href="toIndex" title="首页">首页</a></li>
+        <li><a href="toBuy" title="买车" class="here">买车</a></li>
+        <li><a href="toSell" title="卖车">卖车</a></li>
+        <li><a href="toGujia" title="评估">评估</a></li>
+        <li><a href="toNews" title="攻略">攻略</a></li>
+        <li><a href="toContact" title="联系">联系</a></li>
+    </ul>
+</div>
+<div class="  col-xs-12 dh-wz ">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigat</span>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="clearfix xiala ">
+                <li><a href="toIndex" title="首页">首页</a></li>
+                <li class="on"><a href="toBuy" title="买车" class="here">买车</a></li>
+                <li><a href="toSell" title="卖车">卖车</a></li>
+                <li><a href="toGujia" title="评估">评估</a></li>
+                <li><a href="toNews" title="攻略">攻略</a></li>
+                <li><a href="toContact" title="联系">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!--头部end -->
+<div class="nav">您当前查询条件：<a href="#" tppabs="#">买车</a> <span>></span> <a href="#" tppabs="#">所有车辆</a></div>
+<div class="main clearfix mt10">
+    <div class="main_left">
+        <div class="search_box">
+            <ul class="search_list">
+                <form method="get" action="http://ec50.99wq.cn/index.php">
+                    <li>品 牌：
+                        <a id="brandHead" href="/toBuy" tppabs="#" >全部</a>
+                        <a id="brDZ" href="/toBuy?keyWord=大众&amp;id=brDZ" tppabs="#">大众</a>
+                        <a id="brBC" href="/toBuy?keyWord=奔驰&amp;id=brBC" tppabs="#">奔驰</a>
+                        <a id="brFT" href="/toBuy?keyWord=丰田&amp;id=brFT" tppabs="#">丰田</a>
+                        <a id="brBK" href="/toBuy?keyWord=别克&amp;id=brBK" tppabs="#">别克</a>&nbsp;&nbsp;
+                        <select name="p_brand" id="brand">
+                            <option value=''></option>
+                            <option value='奥迪'> 奥迪</option>
+                            <option value='别克'> 别克</option>
+                            <option value='东风悦达'> 东风悦达</option>
+                            <option value='宾利'> 宾利</option>
+                            <option value='保时捷'> 保时捷</option>
+                            <option value='吉利'> 吉利</option>
+                            <option value='奔驰'> 奔驰</option>
+                            <option value='东南汽车'> 东南汽车</option>
+                            <option value='奇瑞QQ'> 奇瑞QQ</option>
+                            <option value='现代'> 现代</option>
+                            <option value='宝马'> 宝马</option>
+                            <option value='比亚迪'> 比亚迪</option>
+                            <option value='本田'> 本田</option>
+                            <option value='日产'> 日产</option>
+                            <option value='雪佛兰'> 雪佛兰</option>
+                            <option value='大众'> 大众</option>
+                            <option value='福特'> 福特</option>
+                            <option value='丰田'> 丰田</option>
+                        </select>
+                    </li>
+                </form>
+                <li>车 型： <a href="#" tppabs="#" class="here">全部</a><a href="#" tppabs="#">微型车</a><a href="#" tppabs="#">小型车</a><a
+                        href="#" tppabs="#">紧凑型车</a><a href="#" tppabs="#">中型车</a><a href="#" tppabs="#">中大型车</a><a
+                        href="#" tppabs="#">豪华车</a><a href="#" tppabs="#">MPV</a><a href="#" tppabs="#">SUV</a><a
+                        href="#" tppabs="#">跑车</a></li>
+                <li>价 格： <a id="priceHead" href="/toBuy" tppabs="#" >全部</a><a id="pri4" href="/toBuy?hPrice=4&amp;id=pri4" tppabs="#">4万以下</a>
+                    <a id="pri8" href="/toBuy?lPrice=4&amp;hPrice=8&amp;id=pri8" tppabs="#">4-8万</a>
+                    <a id="pri12" href="/toBuy?lPrice=8&amp;hPrice=12&amp;id=pri12" tppabs="#">8-12万</a>
+                    <a id="pri18" href="/toBuy?lPrice=12&amp;hPrice=18&amp;id=pri18" tppabs="#">12-18万</a>
+                    <a id="pri25" href="/toBuy?lPrice=18&amp;hPrice=25&amp;id=pri25" tppabs="#">18-25万</a>
+                    <a id="pri35" href="/toBuy?lPrice=25&amp;hPrice=35&amp;id=pri35" tppabs="#">25-35万</a>
+                    <a id="pri50" href="/toBuy?lPrice=35&amp;hPrice=50&amp;id=pri50" tppabs="#">35-50万</a>
+                    <a id="pri80" href="/toBuy?lPrice=50&amp;hPrice=80&amp;id=pri80" tppabs="#">50-80万</a>
+                    <a id="pris" href="/toBuy?lPrice=80&amp;id=pris" tppabs="#">80万以上</a></li>
+                <li>车 龄： <a id="ageHead" href="/toBuy" tppabs="#" >全部</a>
+                    <a id="age1" href="/toBuy?hAge=1&amp;id=age1" tppabs="#">1年以内</a><a id="age2" href="/toBuy?hAge=2&amp;id=age2" tppabs="#">2年以内</a>
+                    <a id="age3" href="/toBuy?hAge=3&amp;id=age3" tppabs="#">3年以内</a><a id="age4" href="/toBuy?hAge=4&amp;id=age4" tppabs="#">4年以内</a>
+                    <a id="age5" href="/toBuy?hAge=5&amp;id=age5" tppabs="#">5年以内</a><a id="age6" href="/toBuy?hAge=6&amp;id=age6" tppabs="#">6年以内</a>
+                    <a id="ages" href="/toBuy?lAge=6&amp;id=ages" tppabs="#">6年以上</a></li>
+                <li>排 量： <a href="#" tppabs="#" class="here">全部</a><a href="#" tppabs="#">1.0L</a><a href="#"
+                                                                                                     tppabs="#">2.0L</a><a
+                        href="#" tppabs="#">3.0L</a><a href="#" tppabs="#">4.0L</a><a href="#" tppabs="#">5.0L及以上</a>
+                </li>
+            </ul>
+        </div>
+        <div class="cartype mt15">
+            <ul class="clearfix">
+                <li><a href="#" tppabs="#" class="here">全部二手车</a></li>
+            </ul>
+        </div>
+        <div class="search_big_box">
+            <div class="orderlist">
+                <ul class="fl">
+                    <li class="or04"><a href="#" tppabs="#">时间</a></li>
+                    <li class="or02"><a href="#" tppabs="#">价格</a></li>
+                    <li class="or02"><a href="#" tppabs="#">里程</a></li>
+                    <li class="or02"><a href="#" tppabs="#">车龄</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <div class="listcar clearfix" th:each="carInfo:${carInfoDtos}">
+                    <div class="img"><a th:href="@{'/getCar?carId='+${carInfo.carId}}" tppabs="#" target="_blank">
+                        <img th:src="${carInfo.carUrl}"/></a>
+                    </div>
+                    <div class="word">
+                        <p class="clearfix"><span class="carname fl"><a th:href="@{'/getCar?carId='+${carInfo.carId}}" tppabs="#" target="_blank">
+                            <span th:text="${carInfo.brand}+' '+${carInfo.series}"></span> 经典款
+                            <span th:text="${carInfo.displacement}+'L'"></span>
+                            <span th:text="${carInfo.gearBox}"></span> <span th:text="${carInfo.style}"></span></a></span>
+                            <span class="fl pt5"> <span class="check02" title="个人车源"></span> <span class="check03"
+                                     title="审核通过"></span></span>
+                        </p>
+                        <p class="gray">排量：<span class="orange01" th:text="${carInfo.displacement}"></span> 升 / 上牌日期 <span class="orange01" th:text="${carInfo.plateTime}"></span>
+                             / 颜色：<span class="orange01" th:text="${carInfo.color}">红色</span> / 行驶里程：
+                            <span class="orange01" th:text="${carInfo.mileage}">2.70</span> 万公里</p>
+                        <p class="gray">车主说明：<span th:text="${carInfo.introduce}"></span></p>
+                        <p class="gray">发布时间：<span th:text="${carInfo.addTime}"></span></p>
+                    </div>
+                    <div class="price"><span class="orange01 fb f14 fr" th:text="'￥'+${carInfo.price}+'万'"></span></div>
+                </div>
+                <div class="page_list">
+                    <span><a id="lPage" th:href="${pageIndex&gt;1}?'toBuy?pageIndex='+${pageIndex-1}+'&amp;id=the'+${pageIndex-1}">上一页</a></span>
+                    <a id="the1" href="/toBuy?&amp;id=the1">第1页</a>
+                    <a id="the2" href="/toBuy?pageIndex=2&amp;id=the2">第2页</a>
+                    <a id="the3" href="/toBuy?pageIndex=3&amp;id=the3">第3页</a>
+                    <a id="the4" href="/toBuy?pageIndex=4&amp;id=the4">第4页</a>
+                    <a id="the5" href="/toBuy?pageIndex=5&amp;id=the5">第5页</a>
+                    <span><a id="hPage" th:href="${pageIndex&lt;1}?'toBuy?pageIndex=2&amp;id=the2':'toBuy?pageIndex='+${pageIndex+1}+'&amp;id=the'+${pageIndex+1}">下一页</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_right">
+        <div class="commonbox02">
+            <h3>热门车源</h3>
+            <div class="box">
+                <div id="hotcar">
+                    <div class="hotcarlist"><a href="/getCar?carId=bc62ecea-0775-4a84-b0e3-7aacf182d956"
+                                               target="_blank"><img
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205213856_0684.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=bc62ecea-0775-4a84-b0e3-7aacf182d956" target="_blank">一汽-大众CC
+                            2015款 3.0FSI V6</a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥23.88万</span>2015年8月上牌</p>
+                    </div>
+                    <div class="hotcarlist"><a href="/getCar?carId=3f6fd5c2-3a5a-42ab-bf81-5c2db054cd20"
+                                               target="_blank"><img
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205211319_0437.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=3f6fd5c2-3a5a-42ab-bf81-5c2db054cd20" target="_blank">奔驰E级
+                            2014款 E 300 L </a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥36.8万</span>2014年7月上牌</p>
+                    </div>
+                    <div class="hotcarlist"><a href="/getCar?carId=a5641634-02f2-4485-a6fc-145be7cc42d1"
+                                               target="_blank"><img
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205221149_0644.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=a5641634-02f2-4485-a6fc-145be7cc42d1" target="_blank">丰田坦途
+                            2011款 5.7 标准型 </a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥46.9万</span>2016年9月上牌</p>
+                    </div>
+                    <div class="hotcarlist"><a href="/getCar?carId=5f240d1b-ddb9-4fe0-8eea-5b4727a63dc1"
+                                               target="_blank"><img
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205222217_0841.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=5f240d1b-ddb9-4fe0-8eea-5b4727a63dc1" target="_blank">英朗
+                            2014款 XT 1.6L </a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥8.3万</span>2014年3月上牌</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部导航-->
+<div class="footer" id="foot">
+    <p class="tc"><a href="#" tppabs="#" title="首页">首页</a> | <a href="#" tppabs="#" title="买车">买车</a>
+        | <a href="#" tppabs="#" title="卖车">卖车</a>
+        | <a href="#" tppabs="#" title="评估">评估</a>
+        | <a href="#" tppabs="#" title="攻略">攻略</a>
+        | <a href="#" tppabs="#" title="联系">联系</a> | </p>
+    <p class="mt10"> Copyright 2017 汇淘二手车交易市场有限公司 </p>
+    <p class="mt10"><img src="images/dh.jpg"/>0512-67481686 </p>
+</div>
+<div id="right-side" class="right-side">
+    <ul>
+        <li class="side-top w4"><a id="backtop" title="返回顶部" href="#" style="display: block;">返回顶部</a></li>
+    </ul>
+</div>
+<!-- 版权 结束 -->
+</body>
+<script th:inline="javascript">
+    $(document).ready(function(){
+        var buyId=[[${id}]];
+//        alert(buyId);
+        if (buyId !== null ) {
+            if(buyId.indexOf("br")>-1){
+                $("#priceHead").addClass("here");
+                $("#ageHead").addClass("here");
+                $("#" + buyId).addClass("here");
+            }
+            if(buyId.indexOf("pri")>-1) {
+                $("#brandHead").addClass("here");
+                $("#ageHead").addClass("here");
+                $("#" + buyId).addClass("here");
+            }
+            if(buyId.indexOf("age")>-1) {
+                $("#brandHead").addClass("here");
+                $("#priceHead").addClass("here");
+                $("#" + buyId).addClass("here");
+
+            }
+            if(buyId.indexOf("the")>-1){
+                $("#" + buyId).addClass("on");
+            }
+        }else {
+
+            $("#the1").addClass("on");
+            $("#brandHead").addClass("here");
+            $("#priceHead").addClass("here");
+            $("#ageHead").addClass("here");
+        }
+    });
+</script>
+</html>

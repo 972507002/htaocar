@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="renderer" content="webkit"/>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <title>车辆审核</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link href="css/user.css" rel="stylesheet" type="text/css"/>
+    <link href="css/sj.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+
+</head>
+<body>
+<style type="text/css">
+    .nav_list ul > li {
+        margin-right: 30px;
+    }
+</style>
+<!--内容-->
+<script type="text/javascript" src="js/jquery.inputtext.js"></script>
+<script language="JavaScript">
+    $(function () {
+        $(".keywords").textRemindAuto();
+    })
+</script>
+<!--头部-->
+<!--<script language="JavaScript">-->
+<!--$(function(){-->
+<!--$("#login").load("index.php-m=ajax&ajax=1&login=1.htm"/*tpa=http://ec50.99wq.cn/index.php?m=ajax&ajax=1&login=1*/);-->
+<!--})-->
+<!--</script>-->
+
+
+<div class="top">
+    <div class="top_main clearfix">
+        <div class="top_left"> 欢迎来到汇淘二手车交易市场有限公司！</div>
+        <div class="top_right"> 咨询热线：<span class="orange01 fb">0512-67481686</span></div>
+    </div>
+</div>
+
+<div class="headw">
+    <div class="head">
+        <div class="logo"><a href="#"><img src="images/logo.jpg" alt=""/></a></div>
+        <div class="topsearch">
+            <div class="topsearchbox">
+                <form method="get" action="">
+                    <input type="text" name="k" class="keywords" value="请输入关键词，如宝马"/>
+                    <input type="submit" value="" class="button"/>
+                    <input type="hidden" name="m" value="search"/>
+                </form>
+            </div>
+        </div>
+        <div class="carnum"><a href="/toRegister"><img src="images/zhongxin.jpg"/></a></div>
+    </div>
+</div>
+<div class="nav_list">
+    <ul class="clearfix">
+        <li><a href="toIndex" title="首页">首页</a></li>
+        <li><a href="toBuy" title="买车">买车</a></li>
+        <li><a href="toSell" title="卖车">卖车</a></li>
+        <li><a href="toGujia" title="评估">评估</a></li>
+        <li><a href="toNews" title="攻略">攻略</a></li>
+        <li><a href="toContact" title="联系">联系</a></li>
+    </ul>
+</div>
+<div class="  col-xs-12 dh-wz ">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigat</span>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="clearfix xiala ">
+                <li><a href="toIndex" title="首页">首页</a></li>
+                <li><a href="toBuy" title="买车">买车</a></li>
+                <li><a href="toSell" title="卖车">卖车</a></li>
+                <li><a href="toGujia" title="评估">评估</a></li>
+                <li><a href="toNews" title="攻略">攻略</a></li>
+                <li><a href="toContact" title="联系">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!--头部end -->
+<div class="container">
+    <div class="fbc">
+        <div class="col-md-2 col-sm-12 col-xs-12 fbc-1">
+            <div class="fbc-1-1"><img src="images/grzx.jpg" onclick="loginOff()"/></div>
+            <div class="fbc-1-2">个人中心</div>
+            <div class="fbc-1-3">手机号：<span th:text="${session.loginName}"></span></div>
+            <div class="fbc-1-4"><A href="toMess">联系信息</A></div>
+            <div class="fbc-1-4 "><A href="toReservations">预约管理</A></div>
+            <div class="fbc-1-4  "><A href="toUsers">人员管理</A></div>
+            <div class="fbc-1-4 on"><A href="#">车辆管理</A></div>
+
+        </div>
+        <div class="col-md-10 col-sm-12 col-xs-12 clgl fbc-2">
+            <div class="fbc-2-1 gl-1" style="overflow:auto;">
+                <table width="" border="1" align="left">
+                    <tr>
+                        <th scope="col">审核车辆</th>
+                        <th scope="col">审核状态</th>
+                        <th scope="col">审核</th>
+                    </tr>
+                    <!--<tr>
+                        <td class="gl-1-1"><a href="#">1</a>一汽 夏利N3 小型车</td>
+                        <td class="gl-1-2"><A href="#">待审核</A></td>
+                        <td class="gl-1-3"><a href="#">通过</a>&nbsp;&nbsp;<a href="#">失败</a></td>
+                    </tr>
+                    <tr>
+                        <td class="gl-1-1"><a href="#">2</a>一汽 夏利N3 小型车</td>
+                        <td class="gl-1-2"><A href="#">待审核</A></td>
+                        <td class="gl-1-3"><a href="#">通过</a>&nbsp;&nbsp;<a href="#">失败</a></td>
+                    </tr>
+                    <tr>
+                        <td class="gl-1-1"><a href="#">3</a>一汽 夏利N3 小型车</td>
+                        <td class="gl-1-2"><A href="#">待审核</A></td>
+                        <td class="gl-1-3"><a href="#">通过</a>&nbsp;&nbsp;<a href="#">失败</a></td>
+                    </tr>-->
+                    <tr th:each="carInfo:${carInfoDtos}">
+                        <td class="gl-1-0" align="left">&nbsp;&nbsp;
+                            <a style="background:#ff9a1f; padding:2px 7px; color:#fff; text-decoration:none; margin-right:15px;"
+                               th:href="@{'/getCar?carId='+${carInfo.carId}}"><span th:text="${carInfo.style}"></span>
+                            </a>
+                            <a th:href="@{'/getCar?carId='+${carInfo.carId}}"><span
+                                    th:text="${carInfo.brand}+' '+${carInfo.series}"></span></a></td>
+                        <td class="gl-1-2"><A>
+                            <span th:switch="${carInfo.isAudit}">
+                                <span th:case="0">待审核</span>
+                                <span th:case="1">已审核</span>
+                                <span th:case="2">未通过</span>
+                            </span>
+                        </A></td>
+                        <td class="gl-1-3">
+                            <span th:onclick="'javascript:passCar(\''+${carInfo.carId}+'\');'"><a href="#">通过</a></span>&nbsp;&nbsp;
+                            <span th:onclick="'javascript:dePassCar(\''+${carInfo.carId}+'\');'"><a
+                                    href="#">失败</a></span></td>
+                    </tr>
+
+                </table>
+
+
+                <div class="cl-fy"><a href="#">&lt;</a><A href="toAudit">1</A><A href="toAudit?pageIndex=2">2</A><A href="toAudit?pageIndex=3">3</A>
+                    <A href="toAudit?pageIndex=4">4</A><A href="toAudit?pageIndex=5">5</A><a href="#">&gt;</a></div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+<script th:inline="javascript">
+    function passCar(carId) {
+
+        var url = "passCar?carId=" + carId;
+        var ok = confirm("通过审核？");
+        if (ok) {
+            window.location.href = url;
+        }
+    }
+
+    function dePassCar(carId) {
+
+        var url = "dePassCar?carId=" + carId;
+        var ok = confirm("审核失败？");
+        if (ok) {
+            window.location.href = url;
+        }
+    }
+
+    $(document).ready(function () {
+        var theId = [[${id}]];
+        if(theId !== null){
+            var lId = theId - 1;
+            var hId = theId + 1;
+            $(".cl-fy a").eq(theId).addClass("on");
+            $(".cl-fy a").eq(0).attr("href", "toAudit?pageIndex=" + lId);
+            $(".cl-fy a").eq(6).attr("href", "toAudit?pageIndex=" + hId);
+        }else {
+            $(".cl-fy a").eq(1).addClass("on");
+            $(".cl-fy a").eq(6).attr("href","toAudit?pageIndex=2");
+        }
+
+    });
+</script>
+
+
+<!--版权-->
+<!--底部导航-->
+<div class="footer" id="foot">
+    <p class="tc"><a href="#" tppabs="#" title="首页">首页</a> | <a href="#" tppabs="#" title="买车">买车</a>
+        | <a href="#" tppabs="#" title="卖车">卖车</a>
+        | <a href="#" tppabs="#" title="评估">评估</a>
+        | <a href="#" tppabs="#" title="攻略">攻略</a>
+        | <a href="#" tppabs="#" title="联系">联系</a> | </p>
+    <p class="mt10"> Copyright 2017 汇淘二手车交易市场有限公司 </p>
+    <p class="mt10"><img src="images/dh.jpg"/>0512-67481686 </p>
+</div>
+<div id="right-side" class="right-side">
+    <ul>
+        <li class="side-top w4"><a id="backtop" title="返回顶部" href="#" style="display: block;">返回顶部</a></li>
+    </ul>
+</div>
+<!-- 版权 结束 -->
+</body>
+</html>

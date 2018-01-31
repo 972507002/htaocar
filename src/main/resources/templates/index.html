@@ -1,0 +1,801 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="renderer" content="webkit"/>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="css/sj.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
+    <script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+
+
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var count = 0;
+            var $li = $("#slider>ul>li");
+            $(".next").click(function () {
+                count++;
+                if (count == $li.length) {
+                    count = 0;
+                }
+                $li.eq(count).fadeIn().siblings().fadeOut();
+                $(".slider_icon i").eq(count).addClass("btn_act").siblings().removeClass('btn_act');
+                console.log(count);
+            });
+            $(".prve").click(function () {
+                count--;
+                if (count == -1) {
+                    count = $li.length - 1;
+                }
+                console.log(count);
+                $li.eq(count).fadeIn().siblings().fadeOut();
+                $(".slider_icon i").eq(count).addClass("btn_act").siblings().removeClass('btn_act');
+            });
+            $(".slider_icon i").mouseenter(function () {
+                $(this).addClass('btn_act').siblings().removeClass("btn_act");
+                $li.eq($(this).index()).fadeIn().siblings().fadeOut();
+                count = $(this).index();
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<style type="text/css">
+
+    li {
+        list-style: none;
+    }
+
+    .banner-r-2 {
+        background: #eee;
+        padding: 5px;
+        text-align: center;
+        font-size: 16px;
+        padding-bottom: 10px;
+        margin: 5% 15%;
+    }
+
+    .banner-r {
+        width: 20%;
+    }
+
+    .banner-r-2 img {
+        max-height: 100px;
+        max-width: 100px;
+    }
+
+    .banner-r-1 {
+        font-size: 18px;
+        text-align: center;
+        padding: 5px 0px;
+    }
+
+    .banner {
+        width: 80%;
+        float: left;
+        height: 440px;
+    }
+
+    .slider_list li {
+        position: absolute;
+        display: none;
+    }
+
+    .slider_list li:first-child {
+        display: block;
+    }
+
+    .slider_icon {
+        position: absolute;
+        z-index: 1;
+        left: 40%;
+        bottom: 20%;
+        font-size: 0;
+        padding: 4px 8px;
+        border-radius: 12px;
+        background-color: hsla(0, 0%, 100%, .3);
+    }
+
+    .slider_icon i {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+
+    .btn {
+        background: #fff;
+        padding: 0px;
+    }
+
+    .arrow {
+        display: none;
+        width: 30px;
+        height: 60px;
+        background-color: #ff6600;
+        position: absolute;
+        top: 50%;
+        margin-top: -30px;
+    }
+
+    .prve {
+        left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    .arrow span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid #fff;
+        border-left: 2px solid #fff;
+    }
+
+    .slider_left {
+        margin: 25px 0 0 10px;
+        transform: rotate(45deg);
+    }
+
+    .slider_right {
+        margin: 25px 0 0 5px;
+        transform: rotate(-135deg);
+    }
+
+    .arrow:hover {
+        background: #444;
+    }
+
+    #slider:hover .arrow {
+        display: block;
+    }
+
+    .btn_act {
+        background: #ff6600;
+    }
+
+    .car-1 {
+        text-align: center;
+    }
+
+    .car-1 .car-1-1 img {
+        max-height: 70px;
+        max-width: 70px;
+    }
+
+    .car-1-bt {
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 15px;
+        font-size: 15px;
+    }
+
+    .banner img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .car-2-1 {
+        line-height: 250%;
+        margin-top: 9%;
+    }
+
+    .car-1-1 {
+        margin-top: 10px;
+    }
+
+    .car-2-1 a {
+        font-size: 15px;
+    }
+
+    .car-2 {
+        text-align: center;
+    }
+
+    .car1 {
+        border-left: 2px solid #eee;
+        clear: both;
+        overflow: hidden;
+        height: 190px;
+    }
+
+    .car-1-1 .on {
+        color: #ff6600;
+    }
+
+    .car-2-1 .on {
+        color: #ff6600;
+    }
+
+    .x-c {
+        width: 100%;
+    }
+
+    .x-c .bigcarlist li {
+        width: 22.4%;
+        height: inherit;
+    }
+    /*
+    .x-c .bigcarlist li img {
+        max-width: 100%;
+        max-height: 150px;
+    }
+    .bigcarlist li img{max-width:175px; max-height:105px; height:100%; width:100%;}
+    */
+
+
+    .car1 {
+        text-align: center;
+    }
+
+    .car1 img {
+        width: 100%;
+    }
+
+    .index-n-1 {
+    }
+
+    .index-n-1-1 {
+        position: relative;
+        top: -10px;
+        background: url(images/1.png) no-repeat;
+        width: 149px;
+        height: 50px;
+        font-size: 20px;
+        color: #fff;
+        padding-left: 25px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .index-n-1-11 {
+        position: relative;
+        top: -10px;
+        background: url(images/2.png) no-repeat;
+        width: 149px;
+        height: 50px;
+        font-size: 20px;
+        color: #fff;
+        padding-left: 25px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .index-n-11 {
+        margin: 10px;
+        margin-top: 20px;
+        background: #fff;
+    }
+
+    .index-n-12 {
+        margin: 10px;
+        margin-top: 20px;
+        background: #fff;
+    }
+
+    .index-n {
+        margin-top: 20px;
+        clear: both;
+        overflow: hidden
+    }
+
+    .index-n-1-2 {
+        font-size: 14px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 5px;
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    .index-n-1-2 a {
+        font-size: 14px;
+        color: #999;
+    }
+
+    .index-n-1-2 a:hover {
+        color: #ff6600;
+    }
+
+    .index-n-1-3 {
+        text-align: right;
+        padding: 5px;
+    }
+
+    .index-n-1-3 a:hover {
+        color: #ff6600;
+    }
+
+    .index-n-1-3 a {
+        font-size: 14px;
+        color: #999;
+    }
+
+    .index-n1 {
+        background: #eee;
+        padding: 3px;
+        margin-right: 20px;
+    }
+
+    .index-n2 {
+        background: #eee;
+        padding: 3px;
+        margin-left: 20px;
+    }
+
+    .main-i {
+        margin-top: 10px;
+        clear: both;
+        overflow: hidden;
+    }
+
+    .main-i1 {
+        clear: both;
+        overflow: hidden;
+    }
+
+    @media (max-width: 1220px) {
+        .banner {
+            height: 400px;
+        }
+
+        .banner-r-2 img {
+            max-width: 80px;
+        }
+
+        .x-c .bigcarlist li {
+            width: 23.5%;
+            height: inherit;
+        }
+
+
+    }
+
+
+
+
+    @media (min-width: 991px) {
+        .x-c .bigcarlist li img {
+            width:100%;
+            max-height: 150px;
+
+        }
+    }
+
+
+    @media (max-width: 990px) {
+        .x-c .bigcarlist li img {
+            width:100%;
+            height: 140px;
+
+        }
+
+    }
+
+
+    @media (max-width: 890px) {
+        .x-c .bigcarlist li img {
+            width:100%;
+            height: 120px;
+
+        }
+
+    }
+
+    @media (max-width: 775px) {
+        .x-c .bigcarlist li img {
+            width:100%;
+            height: 170px;
+
+        }
+
+    }
+
+    @media (max-width: 600px) {
+        .x-c .bigcarlist li img {
+            width:100%;
+            height: 140px;
+
+        }
+
+    }
+
+    @media (max-width: 500px) {
+        .x-c .bigcarlist li img {
+            width:100%;
+            height: 130px;
+
+        }
+
+    }
+
+
+    @media (max-width: 430px){
+        .bigcarlist li img{max-width:175px; max-height:100px; height:100%; width:100%;}
+    }
+
+
+    /*
+    .x-c .bigcarlist li img {
+        width: 100%;
+        height: 55.5%;
+    }
+    */
+
+
+    @media (max-width: 1110px) {
+        .banner-r-2 img {
+            max-width: 70px;
+        }
+
+    }
+
+
+    @media (max-width: 990px) {
+
+        .banner {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 890px) {
+        .banner {
+            height: 380px;
+        }
+
+    }
+
+    @media (max-width: 775px) {
+        .x-c .bigcarlist li {
+            width: 48%;
+            height: inherit;
+        }
+
+        .index-n1 {
+            background: #eee;
+            padding: 3px;
+            margin-right: 0px;
+        }
+
+        .index-n2 {
+            background: #eee;
+            padding: 3px;
+            margin-left: 0px;
+        }
+
+        .banner {
+            height: 300px;
+            clear: both;
+            overflow: hidden;
+        }
+
+        .car-1-bt {
+            font-weight: bold;
+            padding-top: 10px;
+        }
+
+        .car1 {
+            height: 100%;
+        }
+
+    }
+
+    @media (max-width: 600px) {
+        .banner {
+            height: 260px;
+        }
+
+        .x-c .bigcarlist li {
+            height: 240px;
+            width: 43%;
+        }
+
+    }
+
+    @media (max-width: 500px) {
+        .banner {
+            height: 200px;
+        }
+    }
+
+    @media (max-width: 430px) {
+        .banner {
+            height: 170px;
+        }
+
+
+
+    }
+    .nav_list ul > li{
+        margin-right: 30px;
+    }
+</style>
+<!--内容-->
+<script type="text/javascript" src="js/jquery.inputtext.js"></script>
+<script language="JavaScript">
+    $(function () {
+        $(".keywords").textRemindAuto();
+    })
+</script>
+<!--头部-->
+<div class="top">
+    <div class="top_main clearfix">
+        <div class="top_left"> 欢迎来到汇淘二手车交易市场有限公司！</div>
+        <div class="top_right"> 咨询热线：<span class="orange01 fb">0512-67481686</span> </div>
+    </div>
+</div>
+<div class="headw">
+    <div class="head">
+        <div class="logo"><a href="#"><img src="images/logo.jpg" alt=""/></a></div>
+        <div class="topsearch">
+            <div class="topsearchbox">
+                <form method="get" action="/toBuy">
+                    <input type="text" name="keyWord" class="keywords" value="请输入关键词，如宝马"/>
+                    <input type="submit" value="" class="button"/>
+                    <!--<input type="hidden" name="m" value="search"/>-->
+                </form>
+            </div>
+        </div>
+        <div class="carnum"><a href="/toRegister"><img src="images/zhongxin.jpg"/></a></div>
+    </div>
+</div>
+<div class="nav_list">
+    <ul class="clearfix ">
+        <li><a href="toIndex" title="首页" class="here">首页</a></li>
+        <li><a href="toBuy" title="买车">买车</a></li>
+        <li><a href="toSell" title="卖车">卖车</a></li>
+        <li><a href="toGujia" title="评估">评估</a></li>
+        <li><a href="toNews" title="攻略">攻略</a></li>
+        <li><a href="toContact" title="联系">联系</a></li>
+    </ul>
+</div>
+<div class="  col-xs-12 dh-wz ">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigat</span>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="clearfix xiala ">
+                <li class="on"><a href="toIndex" title="首页" class="here">首页</a></li>
+                <li><a href="toBuy" title="买车">买车</a></li>
+                <li><a href="toSell" title="卖车">卖车</a></li>
+                <li><a href="toGujia" title="评估">评估</a></li>
+                <li><a href="toNews" title="攻略">攻略</a></li>
+                <li><a href="toContact" title="联系">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!--头部end -->
+<div class="main main-i1">
+    <div id="slider" class="banner col-md-10 col-sm-12 col-xs-12">
+        <ul class="slider_list">
+            <li><a href="#"><img src="images/main1.jpg"/></a></li>
+            <li><a href="#"><img src="images/main4.jpg"/></a></li>
+            <li><a href="#"><img src="images/main5.jpg"/></a></li>
+
+        </ul>
+        <div class="slider_icon">
+            <i class="btn btn_act"></i>
+            <i class="btn"></i>
+            <i class="btn"></i>
+
+        </div>
+        <a href="javascript:;" class="arrow prve">
+            <span class="slider_left"></span>
+        </a>
+        <a href="javascript:;" class="arrow next">
+            <span class="slider_right"></span>
+        </a>
+    </div>
+    <div class="banner-r col-md-2">
+        <div class="banner-r-1">二手车服务</div>
+
+        <div class="banner-r-2"><a href="toGujia"><img src="images/gujia.png"/><br/>车辆评估</a></div>
+        <div class="banner-r-2"><img src="images/buy.png"/><br/>买二手车</div>
+        <div class="banner-r-2"><img src="images/sell.png"/><br/>卖二手车</div>
+
+
+    </div>
+
+</div>
+
+<div class="main main-i" style=" clear:both; overflow:hidden; border-bottom:2px solid #eee;">
+    <div class="car-1 col-md-6 col-sm-6 col-xs-12">
+        <div class="car-1-bt">品牌</div>
+        <div class="car-1-1 col-md-2  col-sm-2 col-xs-4"><a href="/toBuy?keyWord=福特"><img src="images/福特.png"/><br/>福特</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=奔驰"><img src="images/奔驰.png"/><br/>奔驰</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2col-xs-4"><a href="/toBuy?keyWord=奥迪"><img src="images/奥迪.png"/><br/>奥迪</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=宝马"><img src="images/宝马.png"/><br/>宝马</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=现代"><img src="images/现代.png"/><br/>现代</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=起亚"><img src="images/起亚.png"/><br/>起亚</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=日产"><img src="images/日产.png"/><br/>日产</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=雪佛兰"><img src="images/雪佛兰.png"/><br/>雪弗兰</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=丰田"><img src="images/丰田.png"/><br/>丰田</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=本田"><img src="images/本田.png"/><br/>本田</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=大众"><img src="images/大众.png"/><br/>大众</a></div>
+        <div class="car-1-1 col-md-2 col-sm-2 col-xs-4"><a href="/toBuy?keyWord=别克"><img src="images/别克.png"/><br/>别克</a></div>
+
+    </div>
+    <div class="car-2 col-md-3 col-sm-3 col-xs-12">
+        <div class="car-1-bt">价格</div>
+        <div class="car1">
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="/toBuy?hPrice=4">4万以下</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="/toBuy?lPrice=4&amp;hPrice=8">4-8万</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="/toBuy?lPrice=8&amp;hPrice=12">8-12万</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="/toBuy?lPrice=12&amp;hPrice=18">12-18万</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="/toBuy?lPrice=18&amp;hPrice=25">18-25万</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="/toBuy?lPrice=25&amp;hPrice=35">25-35万</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="/toBuy?lPrice=35&amp;hPrice=50">35-50万</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="/toBuy?lPrice=50&amp;hPrice=80">50-80万</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="/toBuy?lPrice=80">80万以上</a></div>
+        </div>
+
+    </div>
+    <div class="car-3 col-md-3 col-sm-3 col-xs-12">
+        <div class="car-1-bt">车型</div>
+        <div class="car1">
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="#"><img src="images/c-2.png"/><br/>SUV</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="#"><img src="images/c-4.png"/><br/>面包</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="#"><img src="images/c-5.png"/><br/>跑车</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="#"><img src="images/c-3.png"/><br/>MPV</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="#"><img src="images/c-7.png"/><br/>皮卡</a></div>
+            <div class="car-2-1 col-md-4 col-xs-4"><a href="#"><img src="images/c-8.png"/><br/>商务</a></div>
+        </div>
+
+    </div>
+
+
+</div>
+<div class="main clearfix mt15">
+    <div class="main_left x-c">
+        <div class="commonbox01">
+            <h3>商家推荐二手车</h3>
+            <div class="box">
+                <ul class="bigcarlist clearfix">
+                    <li class="bbg"><a href="/getCar?carId=693a24e6-09b8-4aca-a830-fa852238323f" tppabs="#" target="_blank"><img class="img-responsive"
+                                                                                             src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205202337_0797.jpg" /></a>
+                        <p class="carname mt5"><a href="/getCar?carId=693a24e6-09b8-4aca-a830-fa852238323f" tppabs="#" target="_blank">宝马X4 2014款 xDrive20i X版</a></p>
+                        <p class="price">￥42.80万</p>
+                        <p class="gray01 mt5">2015年5月上牌  2.39万公里</p>
+                    </li>
+                    <li class="bbg"><a href="/getCar?carId=97ce0b94-0d44-4063-8d40-152710cb072b" tppabs="#" target="_blank"><img class="img-responsive"
+                                                                                                                                 src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205200333_0759.jpg"/></a>
+                        <p class="carname mt5"><a href="/getCar?carId=97ce0b94-0d44-4063-8d40-152710cb072b" tppabs="#" target="_blank">宝马3系 2007款 320i 豪华型</a>
+                        </p>
+                        <p class="price">￥10.80万</p>
+                        <p class="gray01 mt5">2008年11月上牌  8.2万公里</p>
+                    </li>
+                    <li class="bbg"><a href="/getCar?carId=3cd4e229-e27d-4b51-8a57-692688ab05e6" tppabs="#" target="_blank"><img class="img-responsive"
+                                                                                                                                 src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205214744_0425.jpg"/></a>
+                        <p class="carname mt5"><a href="/getCar?carId=3cd4e229-e27d-4b51-8a57-692688ab05e6" tppabs="#" target="_blank">奔驰A级AMG 2014款 AMG A 45 4MATIC</a>
+                        </p>
+                        <p class="price">￥39.3万</p>
+                        <p class="gray01 mt5">2015年3月上牌  2.7万公里</p>
+                    </li>
+                    <li class="bbg"><a href="/getCar?carId=3f6fd5c2-3a5a-42ab-bf81-5c2db054cd20" tppabs="#" target="_blank"><img
+                            class="img-responsive"
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205211319_0437.jpg"/></a>
+                        <p class="carname mt5"><a href="/getCar?carId=3f6fd5c2-3a5a-42ab-bf81-5c2db054cd20" tppabs="#" target="_blank">奔驰E级 2014款 改款 E 300 L 运动型</a></p>
+                        <p class="price">￥36.8万</p>
+                        <p class="gray01 mt5">2014年7月上牌  5.8万公里</p>
+                    </li>
+                    <li class="bbg"><a href="/getCar?carId=bc62ecea-0775-4a84-b0e3-7aacf182d956" tppabs="#" target="_blank"><img
+                            class="img-responsive"
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205213856_0684.jpg"/></a>
+                        <p class="carname mt5"><a href="/getCar?carId=bc62ecea-0775-4a84-b0e3-7aacf182d956" tppabs="#" target="_blank">一汽-大众CC 2015款 3.0FSI V6</a></p>
+                        <p class="price">￥23.88万</p>
+                        <p class="gray01 mt5">2015年8月上牌  2.8万公里</p>
+                    </li>
+                    <li class="bbg"><a href="/getCar?carId=faeaf1b5-3afd-4f4e-97ea-113116c138ce" tppabs="#" target="_blank"><img
+                            class="img-responsive"
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205214143_0237.jpg"/></a>
+                        <p class="carname mt5"><a href="/getCar?carId=faeaf1b5-3afd-4f4e-97ea-113116c138ce" tppabs="#" target="_blank">一汽-大众CC 2010款 2.0TSI 尊贵型</a></p>
+                        <p class="price">￥13.6万</p>
+                        <p class="gray01 mt5">2011年2月上牌  10万公里</p>
+                    </li>
+                    <li class="bbg"><a href="/getCar?carId=bc9793da-995e-404f-9ad6-ec9df482a9b4" tppabs="#" target="_blank"><img
+                            class="img-responsive"
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205215657_0789.jpg"/></a>
+                        <p class="carname mt5"><a href="/getCar?carId=bc9793da-995e-404f-9ad6-ec9df482a9b4" tppabs="#" target="_blank">Cayman 2013款 Cayman 2.7L</a></p>
+                        <p class="price">￥59.8万</p>
+                        <p class="gray01 mt5">2015年5月上牌  2.78万公里</p>
+                    </li>
+                    <li><a href="/getCar?carId=fd1c01ac-f3f8-4b18-a2a1-9272a8a86cc6" tppabs="#" target="_blank"><img
+                            class="img-responsive"
+                            src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205220150_0148.jpg"/></a>
+                        <p class="carname mt5"><a href="/getCar?carId=fd1c01ac-f3f8-4b18-a2a1-9272a8a86cc6" tppabs="#" target="_blank">大众 up!2015款 electric up!</a></p>
+                        <p class="price">￥15.8万</p>
+                        <p class="gray01 mt5">2015年2月上牌  1.6万公里</p>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="main">
+    <div class="index-n">
+        <div class="index-n-1 col-md-6 col-sm-6 col-xs-12">
+            <div class="index-n1">
+                <div class="index-n-11">
+                    <div class="index-n-1-1">新闻资讯</div>
+
+                    <div class="index-n-1-2"><a href="#">&middot;国五时代，天津近八成二手车面临贱卖</a></div>
+                    <div class="index-n-1-2"><a href="#">&middot;二手车年交易量或超2000万辆！</a></div>
+                    <div class="index-n-1-2"><a href="#">&middot;夏天空调怎么用更好</a></div>
+                    <div class="index-n-1-2"><a href="#">&middot;电商：二手车诚信是关键</a></div>
+                    <div class="index-n-1-3"><a href="#">查看更多》</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="index-n-1 col-md-6 col-sm-6 col-xs-12">
+            <div class="index-n2">
+                <div class="index-n-12">
+                    <div class="index-n-1-11">买车卖车</div>
+
+                    <div class="index-n-1-2"><a href="#">&middot;13大不能过户的二手车</a></div>
+                    <div class="index-n-1-2"><a href="#">&middot;车主卖车的4种类型！</a></div>
+                    <div class="index-n-1-2"><a href="#">&middot;买二手车你懂吗？掏腰包前别忘了这些！</a></div>
+                    <div class="index-n-1-2"><a href="#">&middot;保时捷Cayman性价比怎么样？</a></div>
+                    <div class="index-n-1-3"><a href="#">查看更多》</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script language="JavaScript">
+    $(function () {
+        $mark_li = $("div.marklist ul li");
+        $mark_li.mouseover(function () {
+            $(this).addClass("here").siblings().removeClass("here");
+            var index = $mark_li.index(this);
+            $("div.marklistbox > div").eq(index).show().siblings().hide();
+        });
+    });
+</script>
+
+<!--底部导航-->
+<div class="footer" id="foot">
+    <p class="tc"><a href="#" tppabs="#" title="首页">首页</a> | <a href="#" tppabs="#" title="买车">买车</a>
+        | <a href="#" tppabs="#" title="卖车">卖车</a>
+        | <a href="#" tppabs="#" title="评估">评估</a>
+        | <a href="#" tppabs="#" title="攻略">攻略</a>
+        | <a href="#" tppabs="#" title="联系">联系</a> | </p>
+    <p class="mt10"> Copyright 2017 汇淘二手车交易市场有限公司 </p>
+    <p class="mt10"><img src="images/dh.jpg"/>0512-67481686 </p>
+</div>
+<div id="right-side" class="right-side">
+    <ul>
+        <li class="side-top w4"><a id="backtop" title="返回顶部" href="#" style="display: block;">返回顶部</a></li>
+    </ul>
+</div>
+<!-- 版权 结束 -->
+
+</body>
+</html>

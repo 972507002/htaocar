@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="renderer" content="webkit"/>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <title>车辆详情</title>
+    <meta content="" name="keywords"/>
+    <meta content="" name="description"/>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link href="css/car.css" rel="stylesheet" type="text/css"/>
+    <link href="css/sj.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src=".js/layer/layer.min.js"></script>
+    <script type="text/javascript" src="js/laydate/laydate.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
+    <script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+    <style>
+        @media (min-width: 1001px) {
+            .carbox_left .carpicbox img {
+                max-height: 320px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .carbox_left .carpicbox img {
+                max-height: 250px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .carbox_left .carpicbox img {
+                width: 100%;
+                max-height: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .carbox_left .carpicbox img {
+                width: 100%;
+                max-height: 230px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .carbox_left .carpicbox img {
+                width: 100%;
+                max-height: 230px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .carbox_left .carpicbox img {
+                width: 100%;
+                max-height: 180px;
+            }
+        }
+
+        .nav_list ul > li {
+            margin-right: 30px;
+        }
+
+
+    </style>
+    <script>
+        $(function () {
+            $(".keywords").textRemindAuto();
+        })
+
+    </script>
+</head>
+<body>
+<!--内容-->
+<script type="text/javascript" src="js/jquery.inputtext.js"></script>
+<!--头部-->
+
+
+<div class="top">
+    <div class="top_main clearfix">
+        <div class="top_left"> 欢迎来到汇淘二手车交易市场有限公司！</div>
+        <div class="top_right"> 咨询热线：<span class="orange01 fb">0512-67481686</span> </div>
+    </div>
+</div>
+
+<div class="headw">
+    <div class="head">
+        <div class="logo"><a href="#"><img src="images/logo.jpg" alt=""/></a></div>
+        <div class="topsearch">
+            <div class="topsearchbox">
+                <form method="get" action="/toBuy">
+                    <input type="text" name="keyWord" class="keywords" value="请输入关键词，如宝马"/>
+                    <input type="submit" value="" class="button"/>
+                    <!--<input type="hidden" name="m" value="search"/>-->
+                </form>
+            </div>
+        </div>
+        <div class="carnum"><a href="/toRegister"><img src="images/zhongxin.jpg"/></a></div>
+    </div>
+</div>
+<div class="nav_list">
+    <ul class="clearfix">
+        <li><a href="toIndex" title="首页">首页</a></li>
+        <li><a href="toBuy" title="买车">买车</a></li>
+        <li><a href="toSell" title="卖车">卖车</a></li>
+        <li><a href="toGujia" title="评估">评估</a></li>
+        <li><a href="toNews" title="攻略">攻略</a></li>
+        <li><a href="toContact" title="联系">联系</a></li>
+    </ul>
+</div>
+<div class="  col-xs-12 dh-wz ">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigat</span>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="clearfix xiala ">
+                <li><a href="toIndex" title="首页">首页</a></li>
+                <li><a href="toBuy" title="买车">买车</a></li>
+                <li><a href="toSell" title="卖车">卖车</a></li>
+                <li><a href="toGujia" title="评估">评估</a></li>
+                <li><a href="toNews" title="攻略">攻略</a></li>
+                <li><a href="toContact" title="联系">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!--头部end -->
+<div class="nav">您当前的位置：<a href="#" tppabs="#">首页</a> <span>></span> <a href="#">买车</a> <span></span>
+</div>
+<div class="main mt10">
+    <div class="carbox clearfix">
+        <div class="carbox_left">
+            <div class="carpicbox">
+                <img th:src="${carInfoDto.carUrl}" id="BigImg"/>
+            </div>
+            <div class="ladyScroll">
+                <a class="prev" href="#"></a>
+                <div class="scrollWrap">
+                    <div class="dlList">
+                        <dl  th:each="smallUrl :${carInfoDto.urlList}">
+                            <dt><img th:src="${smallUrl}"
+                                     onmousemove="javascript:document.getElementById('BigImg').src=this.src"/>
+                            </dt>
+                        </dl>
+                    </div>
+                </div>
+                <a class="next" href="#"></a>
+            </div>
+            <script type="text/javascript">
+                jQuery(".ladyScroll").slide({mainCell: ".dlList", effect: "leftLoop", vis: 5, autoPlay: true});
+            </script>
+        </div>
+        <div class="carbox_right">
+            <div class="carname"><span th:text="${carInfoDto.brand}"> </span> <span th:text="${carInfoDto.series}"> </span></div>
+            <p class="gray01 mt20">发布日期：<span th:text="${carInfoDto.addTime}"></span>
+            </p>
+            <div class="detail01 mt10">
+                <ul class="clearfix">
+                    <li class="li01 mb10">价格：￥<span class="price" th:text="${carInfoDto.price}"></span>万</li>
+                    <li>车型：<span th:text="${carDto.p_model}"></span></li>
+                    <li>颜色：<span th:text="${carDto.p_color}"></span></li>
+                    <li>排量：<span th:text="${carDto.p_gas}"></span>L</li>
+                    <li>变速箱：<span th:text="${carDto.p_transmission}"></span></li>
+                </ul>
+                <div class="car_detail clearfix mt15">
+                    <div class="item">
+                        <strong><span th:text="${carInfoDto.plateTime}"></span></strong>首次上牌
+                    </div>
+                    <div class="item">
+                        <strong><span th:text="${carDto.p_kilometre}"></span>万公里</strong>行驶里程
+                    </div>
+                    <div class="item">
+                        <strong>九江</strong>归属地
+                    </div>
+                    <div class="item">
+                        <strong><span th:text="${carDto.p_emission}"></span></strong>排放标准
+                    </div>
+                </div>
+                <div class="contactbox">
+                    <div class="telbox">
+                        <div class="mt20 clearfix">
+                            <span class="h35-p25 " style="border:1px solid #ccc;"><a href="#"
+                                    id="xunjia"><span th:text="${carInfoDto.style}">已审核</span></a></span>
+                            <span class="button_orange h35-p25 mr5"><a
+                                    data-toggle="modal" data-target="#myModal"
+                                    href="#" id="yuyue">预约看车</a></span>
+                            <span class="button_gray h35-p25 "><a href="#" id="xunjia">电话咨询</a></span>
+                        </div>
+
+
+                    </div>
+                    <!-- 模态框 -->
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                                <!-- 模态框头部 -->
+                                <div class="modal-header clearfix">
+                                    <div class="pull-left" style="width: 70%">
+                                        <h3 class="modal-title">名额有限&nbsp;先约再看</h3>
+
+                                        <span style="color: gray;font-size: 12px;"><span th:text="${carInfoDto.brand}"> </span> <span th:text="${carInfoDto.series}"></span></span>
+                                    </div>
+                                    <div class="pull-right" style="width: 30%">
+                                        <img class="img-responsive" th:src="${carInfoDto.carUrl}" alt=""/>
+                                    </div>
+
+                                    <!--  <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                </div>
+
+                                <!-- 模态框主体 -->
+                                <div class="modal-body">
+                                    <!-- <div class="rel_num">
+                                       <input  type="text" placeholder="请输入手机号码,我们第一时间联系你">
+                                    </div>
+                                    <button>预约看车</button> -->
+                                    <form id="reservform" name="reservform" method="post">
+                                        <div class="form-group">
+                                            <input type="hidden" name="carId" id="carId" th:value="${carInfoDto.carId}"/>
+                                            <input type="text" class="form-control" name="niChen" placeholder="输入您的称呼"/>
+                                            <input type="text" class="form-control" name="phoneNum" placeholder="请输入手机号码,我们第一时间联系你"/>
+                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/erweima.jpg"/></span>
+                                        </div>
+                                        <div class="form-group row">
+                                            <button type="button" class="btn btn-danger btn-block" onclick="formReserv()">预约看车</button>
+                                        </div>
+
+
+                                    </form>
+                                </div>
+
+                                <!-- 模态框底部 -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="shouc" id="shouc">
+                    <div onclick="cImg()"><img id="img" th:src="${carInfoDto.isCollect==0}?'images/sc.png':'images/sc1.png'"/>收藏</div>
+                </div>
+
+
+                <script>
+                    var img = document.getElementById('img');
+                    var curWwwPath = window.document.location.href;
+                    var pathName = window.document.location.pathname;
+                    var pos = curWwwPath.indexOf(pathName);
+                    var path = curWwwPath.substring(0, pos);
+
+                    function cImg() {
+                        var carId = $("#carId").val();//序列化表格内容为字符串
+
+                        if (img.src == (path + '/images/sc.png')) {
+                            $.ajax({
+                                type:'post',
+                                url:'collectCar',
+                                data:{"carId":carId},
+                                success:function(resultDto) {
+                                    if(resultDto.success) {
+                                        img.src = 'images/sc1.png';
+                                        alert(resultDto.message);
+                                    }else {
+                                        alert(resultDto.message);
+                                    }
+                                },
+                                error:function (e) {
+                                    alert("出现一些问题，稍后再试试看");
+                                }
+                            })
+
+                        } else {
+                            $.ajax({
+                                type:'post',
+                                url:'uCollectCar',
+                                data:{"carId":carId},
+                                success:function(resultDto) {
+                                    if(resultDto.success) {
+                                        img.src = 'images/sc.png';
+                                        alert(resultDto.message);
+                                    }else {
+                                        alert(resultDto.message);
+                                    }
+                                },
+                                error:function (e) {
+                                    alert("出现一些问题，稍后再试试看");
+                                }
+                            })
+
+                        }
+                    };
+                </script>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="main mt20 clearfix">
+    <div class="main_left main_left1">
+        <div class="cardetailbox">
+            <ul class="title_tab">
+                <li class="here"><a href="#">车辆详情</a></li>
+                <!--<li><a href="#">车主描述</a></li>-->
+
+            </ul>
+            <div class="box">
+                <h3 id="A"><span class="title">车源详情</span></h3>
+                <ul class="cardetaillist clearfix">
+                    <li><span class="gray">车型：</span><span th:text="${carDto.p_model}"></span></li>
+                    <li><span class="gray">行驶里程：</span><span th:text="${carDto.p_kilometre}"></span>万公里</li>
+                    <li><span class="gray">颜色：</span><span th:text="${carDto.p_color}"></span></li>
+                    <li><span class="gray">产地：</span><span th:text="${carDto.p_country}"></span></li>
+                    <li><span class="gray" style="word-spacing:10px;">变速箱：</span><span th:text="${carDto.p_transmission}"></span></li>
+                    <li><span class="gray">排量：</span><span th:text="${carDto.p_gas}"></span>L</li>
+                    <li><span class="gray">交强险到期时间：</span>2016-10-02</li>
+                    <li><span class="gray">年检有效期至：</span>2016-10-02</li>
+                    <li><span class="gray">4S店定期保养：</span>否</li>
+                    <li><span class="gray">车辆用途：</span>非营运</li>
+                    <li><span class="gray">看车地区：</span>汇淘二手车交易市场</li>
+                </ul>
+                <h3 id="B"><span class="title">车主描述</span></h3>
+                <div class="p20 cardetail">
+                    <span th:text="${carDto.p_details}"></span>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="main_right1 main_right ">
+
+        <div class="commonbox01">
+            <h3><span class="title">其他热门车源</span></h3>
+            <div class="box">
+                <ul class="carlist clearfix">
+                    <li>
+                        <a href="/getCar?carId=bc62ecea-0775-4a84-b0e3-7aacf182d956" target="_blank">
+                            <img src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205213856_0684.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=bc62ecea-0775-4a84-b0e3-7aacf182d956" target="_blank">大众CC
+                            2015款 FSI</a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥23.88万</span>2015年8月上牌</p>
+                    </li>
+                    <li>
+                        <a href="/getCar?carId=3f6fd5c2-3a5a-42ab-bf81-5c2db054cd20" target="_blank">
+                            <img src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205211319_0437.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=3f6fd5c2-3a5a-42ab-bf81-5c2db054cd20" tppabs="#" target="_blank">奔驰
+                            2014款 E300</a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥36.8万</span>2014年7月上牌</p>
+                    </li>
+                    <li>
+                        <a href="/getCar?carId=a5641634-02f2-4485-a6fc-145be7cc42d1" target="_blank">
+                            <img src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205221149_0644.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=a5641634-02f2-4485-a6fc-145be7cc42d1" target="_blank">丰田坦途
+                            2011款 5.7</a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥46.9万</span>2016年9月上牌</p>
+                    </li>
+                    <li>
+                        <a href="/getCar?carId=5f240d1b-ddb9-4fe0-8eea-5b4727a63dc1" target="_blank">
+                            <img src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205222217_0841.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=5f240d1b-ddb9-4fe0-8eea-5b4727a63dc1" target="_blank">英朗
+                            2014款 XT 1.6L</a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥8.3万</span>2014年3月上牌</p>
+                    </li>
+                    <li>
+                        <a href="/getCar?carId=97ce0b94-0d44-4063-8d40-152710cb072b" target="_blank">
+                            <img src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205200333_0759.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=97ce0b94-0d44-4063-8d40-152710cb072b" target="_blank">宝马3系 2007款 320i</a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥10.80万</span>2008年11月上牌</p>
+                    </li>
+                    <li>
+                        <a href="/getCar?carId=faeaf1b5-3afd-4f4e-97ea-113116c138ce" target="_blank">
+                            <img src="http://htaocar.oss-cn-hangzhou.aliyuncs.com/car/20171205214143_0237.jpg"/></a>
+                        <p class="mt10"><a href="/getCar?carId=faeaf1b5-3afd-4f4e-97ea-113116c138ce" target="_blank">大众CC 2010款 TSI</a></p>
+                        <p class="gray01"><span class="orange01 fb fr">￥13.6万</span>2011年2月上牌</p>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="Ba1" class="hide">
+    <!--	<div class="popnotice">
+            大众 捷达 2010 款 伙伴，售价￥5.20万，2012年上牌，行驶4.90万公里
+        </div>-->
+    <div class="p20">
+
+    </div>
+</div>
+<div id="Ba2" class="hide">
+    <!--	<div class="popnotice">
+            大众 捷达 2010 款 伙伴，售价￥5.20万，2012年上牌，行驶4.90万公里
+        </div>-->
+    <div class="p20">
+
+    </div>
+</div>
+<!--底部导航-->
+<div class="footer" id="foot">
+    <p class="tc"><a href="#" tppabs="#" title="首页">首页</a> | <a href="#" tppabs="#" title="买车">买车</a>
+        | <a href="#" tppabs="#" title="卖车">卖车</a>
+        | <a href="#" tppabs="#" title="评估">评估</a>
+        | <a href="#" tppabs="#" title="攻略">攻略</a>
+        | <a href="#" tppabs="#" title="联系">联系</a> | </p>
+    <p class="mt10"> Copyright 2017 汇淘二手车交易市场有限公司 </p>
+    <p class="mt10"><img src="images/dh.jpg"/>0512-67481686 </p>
+</div>
+<div id="right-side" class="right-side">
+    <ul>
+        <li class="side-top w4"><a id="backtop" title="返回顶部" href="#" style="display: block;">返回顶部</a></li>
+    </ul>
+</div>
+<!-- 版权 结束 -->
+</body>
+<script>
+    function formReserv() {
+        var formParam = $("#reservform").serialize();//序列化表格内容为字符串
+        $.ajax({
+            type:'post',
+            url:'addReserv',
+            data:formParam,
+            success:function(resultDto) {
+                if(resultDto.success) {
+                    alert(resultDto.message);
+//                    window.location.href="/toLogin";
+//                    $("#regResult").val(result.message);
+                }else {
+                    alert(resultDto.message);
+                }
+            },
+            error:function (e) {
+                alert("出现一些问题，稍后再试试看");
+            }
+        })
+    }
+
+</script>
+</html>
+
